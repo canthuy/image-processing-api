@@ -14,8 +14,8 @@ const port = 3000;
 app.get('/', async (req: express.Request, res: express.Response) => {
   const allFileInput = await getAllImages(INPUT_DIR);
   const allFileOutput = await getAllImages(OUTPUT_DIR, true);
-  const response = `<h3>Welcome to the basic image processing system.</h3> <br>
-   Some image names are available in the system: <ul> ${allFileInput
+  const response = `<h3>Welcome to the image-processing-api project.</h3> <br>
+   Some image names are available: <ul> ${allFileInput
      .map((filename) => `<li>${filename}</li>`)
      .join('')} </ul>
    - Access the path /images?filename=__filename__ to preview the image. <br>

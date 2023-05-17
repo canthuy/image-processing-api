@@ -17,14 +17,22 @@ const validateInput = async (reqImage: ImageInfo) => {
     `${INPUT_DIR}/${reqImage.filename}.jpg`
   );
   if (!isExistFile) {
-    return 'The file name does not exist in the system. Please choose another filename.';
+    return 'The file name does not exist. Please choose another filename.';
   }
 
-  if (!reqImage.width || (reqImage.width && reqImage.width <= 0)) {
+  if (
+    !reqImage.width ||
+    !Number(reqImage.width) ||
+    (reqImage.width && reqImage.width <= 0)
+  ) {
     return 'Please provide a number greater than 0 for the "width" query.';
   }
 
-  if (!reqImage.height || (reqImage.height && reqImage.height <= 0)) {
+  if (
+    !reqImage.height ||
+    !Number(reqImage.height) ||
+    (reqImage.height && reqImage.height <= 0)
+  ) {
     return 'Please provide a number greater than 0 for the "height" query.';
   }
 
